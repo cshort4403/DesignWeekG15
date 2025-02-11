@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GunSpawnManager : MonoBehaviour
 {
-    SpawnOccupied spawnOccupied;
+    //A reference to the SpawnOccupied script
+    public SpawnOccupied spawnOccupied;
+
     //A list of spawnpoints for the gun. These can me placed all over the level.
     public GameObject[] spawnPoints;
     //The gun itself. A second one of these will be needed for the armor
@@ -55,10 +57,13 @@ public class GunSpawnManager : MonoBehaviour
         //Same as above
         timeToSpawnArmor += Time.deltaTime;
 
+
+
         //The if statement that spawns the guns
         if (timeToSpawnGun >= maxGunSpawnTime && gunCount < 3) 
         {
-
+            //Maybe try to add the spawn to an array and make NOT being on that array a part of spawning?
+            //spawnOccupied.notHere.Contains()
 
             //Lets the code know a gun is on the stage. When a gun is picked up, this should be reduced.
             gunCount++;
