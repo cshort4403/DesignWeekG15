@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,11 +27,14 @@ public class MovePlayer : MonoBehaviour
         Move();
     }
 
+	
 
 	public void SetInputVector(Vector2 direction)
 	{
 		InputVector = direction;
 	}
+
+
 
 	public int GetPlayerIndex()
 	{

@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour
 
 	public void OnRotate(CallbackContext context)
 	{
-		//transform.rotation = context.ReadValue<Quaternion>();
+		_MovePlayer.GetComponentInChildren<RotateGun>().SetRotateVector(context.ReadValue<Vector2>());
 	}
 	public void OnShoot(CallbackContext context)
 	{
