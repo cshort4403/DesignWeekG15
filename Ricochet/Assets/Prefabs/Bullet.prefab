@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6880250337289704160}
   - component: {fileID: 8732659497016276174}
   - component: {fileID: 8183790895336478818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,6 +51,7 @@ MonoBehaviour:
   speed: 4000
   numBounces: 5
   maxAliveTime: 2
+  pIndex: 0
 --- !u!58 &8732659497016276174
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5160660425605311270}
   - component: {fileID: 4949849010122264381}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4626900911240774241}
   - component: {fileID: 5412560147147541639}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
