@@ -17,6 +17,17 @@ public class GunBehavior : MonoBehaviour
 	[SerializeField]
 	GameObject bullet;
 
+	[SerializeField]
+	AudioClip[] ShootClips;
+
+	[SerializeField]
+	AudioClip ShellDropClip;
+
+	float ShellDropDelay = 0.5f;
+	float TimeSinceShot = 0;
+
+	bool hasPLayedShellDrop = false;
+
 	Vector2 RotateVector = Vector2.zero;
 	Vector2 PrevRotate = Vector2.zero;
 
@@ -35,6 +46,18 @@ public class GunBehavior : MonoBehaviour
 	void Update()
 	{
 		Rotate();
+
+		if(TimeSinceShot >= ShellDropDelay && !hasPLayedShellDrop)
+		{
+			AudioSource.PlayClipAtPoint(ShellDropClip, transform.position);
+			TimeSinceShot = 0;
+			hasPLayedShellDrop= true;
+		}
+		else if(HasShot && !hasPLayedShellDrop)
+		{
+			TimeSinceShot += Time.deltaTime;
+		}
+
 	}
 	public void SetRotateVector(Vector2 direction)
 	{
@@ -60,6 +83,8 @@ public class GunBehavior : MonoBehaviour
 			b.GetComponent<BulletBehavior>().SetMoveDirection(PrevRotate);
 			b.GetComponent<BulletBehavior>().pIndex = GetComponentInParent<MovePlayer>().GetPlayerIndex();
 			HasShot = true;
+			AudioSource.PlayClipAtPoint(ShootClips[0], transform.position);
+			hasPLayedShellDrop = false;
 		}
 		
 	}

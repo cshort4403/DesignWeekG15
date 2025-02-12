@@ -48,6 +48,11 @@ MonoBehaviour:
   MaxFireDistance: 100
   HasShot: 0
   bullet: {fileID: 3929372877167798712, guid: c12dbfde349820c4d9656b633fd226c0, type: 3}
+  ShootClips:
+  - {fileID: 8300000, guid: 9ebc7063693727b47a9b519c1ea832f0, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  ShellDropClip: {fileID: 8300000, guid: ac818dae2a6beaf4b98766937c01cdc7, type: 3}
 --- !u!1 &6364918550155793741
 GameObject:
   m_ObjectHideFlags: 0
