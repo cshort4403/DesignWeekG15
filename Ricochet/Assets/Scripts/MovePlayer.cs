@@ -15,10 +15,14 @@ public class MovePlayer : MonoBehaviour
 	[SerializeField]
 	private int PlayerIndex = 0;
 
+	Vector3 StartPosition = Vector3.zero;
+	float StartRotation = 0f;
+
 	// Start is called before the first frame update
 	void Start()
     {
-        
+        StartPosition = transform.position;
+		StartRotation = transform.rotation.eulerAngles.z;
     }
 
     // Update is called once per frame
@@ -48,5 +52,10 @@ public class MovePlayer : MonoBehaviour
 		MoveDirection *= MoveSpeed;
 
 		transform.Translate(MoveDirection * Time.deltaTime);
+	}
+
+	public void ResetPosition()
+	{
+		transform.SetPositionAndRotation(StartPosition, Quaternion.AngleAxis(StartRotation, Vector3.forward));
 	}
 }
