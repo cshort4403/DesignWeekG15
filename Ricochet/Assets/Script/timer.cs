@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class timer : MonoBehaviour
+public class Timer : MonoBehaviour
 {   //create a float to track amount of time left
-    public float timeLeft= 3.0f;
+    public float timeLeft = 5f;
     public bool timeIsRunning = true;
-    public TextMeshPro Timer;
+    public Text CountdownTime;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,19 +17,19 @@ public class timer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   //if the timer is on and is greater than 0 subtract 1s
+    {   //if the timer is on and is greater than 0 subtract 1
         {
             if (timeIsRunning)
             {
-                if (timeLeft < 0)
-                {
-                    timeLeft -= Time.deltaTime;
+                if (timeLeft > 0)
+                {  
                     UpdateTimer(timeLeft);
+                    timeLeft -= Time.deltaTime;
+                    
                 }
                 else
                 {   //display text "Time Up" on console
                     Debug.Log("Time Up");
-                    timeLeft = 0;
                 }
 
             }
@@ -47,7 +47,7 @@ public class timer : MonoBehaviour
         float secs = Mathf.FloorToInt(timeLeft % 60);
 
         //input mins and secs variable in desired format
-        Timer.text = string.Format("{00:00}:{1:00}", mins, secs);
+        CountdownTime.text = string.Format("{00:00}:{01:00}", mins, secs);
 
         
     }
