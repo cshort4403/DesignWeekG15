@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Items
-  - Spawns
+  - Wall
+  - Decor
   layers:
   - Default
   - TransparentFX
@@ -13,12 +13,12 @@ TagManager:
   - 
   - Water
   - UI
-  - ItemSpawns
-  - Items
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Players
+  - Bullets
+  - LowWalls
+  - Windows
+  - HighWalls
   - 
   - 
   - 
