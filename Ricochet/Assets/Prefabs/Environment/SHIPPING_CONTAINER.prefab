@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4693939181719518186}
   - component: {fileID: -6338890811298149571}
   - component: {fileID: -1264656261530114181}
-  m_Layer: 6
+  - component: {fileID: 5949353450126723333}
+  m_Layer: 9
   m_Name: SHIPPING_CONTAINER
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,17 +121,17 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.59000003, y: 0.25007963, z: 0.42000002, w: 0.2000637}
+    border: {x: 0.14750001, y: 0.06251991, z: 0.105000004, w: 0.050015926}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 34.239998, y: 16.685312}
+    oldSize: {x: 8.559999, y: 4.171328}
     newSize: {x: 34.239998, y: 16.685312}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 33, y: 16}
-  m_EdgeRadius: 0.1
+  m_Size: {x: 8, y: 4}
+  m_EdgeRadius: 0
 --- !u!50 &-1264656261530114181
 Rigidbody2D:
   serializedVersion: 4
@@ -158,3 +159,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5949353450126723333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998499546361790702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -4, y: 2, z: 0}
+  - {x: -4, y: 2, z: 0}
+  - {x: 4, y: 2, z: 0}
+  - {x: 4, y: 2, z: 0}
+  m_ShapePathHash: -208276203
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 38322
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
