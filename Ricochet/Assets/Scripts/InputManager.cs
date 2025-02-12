@@ -40,7 +40,6 @@ public class InputManager : MonoBehaviour
     {
 		_MovePlayer.SetInputVector(context.ReadValue<Vector2>());
     }
-
 	public void OnRotate(CallbackContext context)
 	{
 		_Gun.SetRotateVector(context.ReadValue<Vector2>());

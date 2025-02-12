@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
@@ -12,26 +14,28 @@ public class GunBehavior : MonoBehaviour
 	[SerializeField]
 	bool HasShot = false;
 
-	LineRenderer _LineRenderer;
+	[SerializeField]
+	GameObject bullet;
+
 	Vector2 RotateVector = Vector2.zero;
 	Vector2 PrevRotate = Vector2.zero;
 
 	private void Awake()
 	{
-		_LineRenderer = GetComponent<LineRenderer>();
+		
 	}
 
 	// Start is called before the first frame update
 	void Start()
-    {
-        
-    }
+	{
 
-    // Update is called once per frame
-    void Update()
-    {
-        Rotate();
-    }
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		Rotate();
+	}
 	public void SetRotateVector(Vector2 direction)
 	{
 		RotateVector = direction;
@@ -46,26 +50,19 @@ public class GunBehavior : MonoBehaviour
 			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		}
 	}
-
+	
 	public void Shoot(bool shooting)
 	{
-		if(shooting) 
+		if (shooting && !HasShot)
 		{
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, PrevRotate, MaxFireDistance);
-			_LineRenderer.enabled = true;
-			_LineRenderer.SetPosition(0, transform.position);
-
-			if (hit)
-			{
-				_LineRenderer.SetPosition(1, hit.point);
-				
-				Debug.Log($"Shot hit {hit.point}");
-			}
-			else
-			{
-				_LineRenderer.SetPosition(1, MaxFireDistance * PrevRotate);
-			}
+			
+			GameObject b = Instantiate(bullet, transform.position, transform.rotation);
+			b.GetComponent<BulletBehavior>().SetMoveDirection(PrevRotate);
+			b.GetComponent<BulletBehavior>().pIndex = GetComponentInParent<MovePlayer>().GetPlayerIndex();
+			HasShot = true;
 		}
-
+		
 	}
 }
+
+
