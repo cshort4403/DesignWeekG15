@@ -28,7 +28,7 @@ public class SpawnOccupied : MonoBehaviour
     }
 
     //if whatever this is attached to touches something tagged "items", then mark it as occupied 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("OnCollisionEnter2D");
 
