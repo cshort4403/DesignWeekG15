@@ -85,7 +85,7 @@ public class GunSpawnManager : MonoBehaviour
                 timeToSpawnGun -= maxGunSpawnTime;
 
                 //Picks one of the spawnpoints randomly from a list, then spawns the gun in that position.
-                Instantiate(spawnableGun, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
+                Instantiate(spawnableGun, spawns.transform.position, Quaternion.identity);
             }
 
             //Same as above but for armor
@@ -100,7 +100,7 @@ public class GunSpawnManager : MonoBehaviour
                 timeToSpawnArmor -= maxArmorSpawnTime;
 
                 //Picks one of the spawnpoints randomly from a list, then spawns the gun in that position.
-                Instantiate(spawnableArmor, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
+                Instantiate(spawnableArmor, spawns.transform.position, Quaternion.identity);
             }
         }
 

@@ -722,6 +722,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7779588667154637993, guid: f60f47948314dab4d901b736a0ac09f9, type: 3}
+      propertyPath: isOccupied
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -6336068002795193813, guid: f60f47948314dab4d901b736a0ac09f9, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -862,7 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c303d68c904600409395656e9305c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnOccupied: {fileID: 0}
+  daSpawns: []
   spawnPoints:
   - {fileID: 2050670609}
   - {fileID: 340840144}
