@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 490391198077911052}
   - component: {fileID: 8524199870791943431}
   - component: {fileID: 5458482540588639869}
-  m_Layer: 0
+  - component: {fileID: 748633140110227934}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -68,10 +69,10 @@ CircleCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -84,6 +85,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &748633140110227934
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405058131955969504}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8273679081646672054
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6096181673804290832}
   - component: {fileID: 1437569918540892169}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +207,14 @@ PrefabInstance:
     - target: {fileID: 2723173978216049830, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723173978216049830, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364918550155793741, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6964222514561615123, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_LocalPosition.x
