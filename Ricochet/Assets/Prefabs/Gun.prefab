@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3223008534340748293}
   - component: {fileID: 7554088265984063644}
   - component: {fileID: 8721697784893413836}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
-  m_TagString: items
+  m_TagString: Items
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,10 @@ using UnityEngine;
 public class GunSpawnManager : MonoBehaviour
 {
     //A reference to the SpawnOccupied script
-    public SpawnOccupied spawnOccupied;
+    //public SpawnOccupied spawnOccupied;
+
+    //Rather then the above that gets the script itself, this can be used to find all the game objects that are tagged as spawnpoints
+    public GameObject[] daSpawns;
 
     //A list of spawnpoints for the gun. These can me placed all over the level.
     public GameObject[] spawnPoints;
@@ -14,7 +18,7 @@ public class GunSpawnManager : MonoBehaviour
     //Same, but for the armor
     public GameObject spawnableArmor;
 
-    //Max number of guns on a stage.
+    //Max number of guns on a stage. You may want to make a maxGunCount int rather then have it be hardcoded as well.
     public int gunCount;
     //Max number of armor vests on the stage
     public int armorCount;
@@ -27,6 +31,8 @@ public class GunSpawnManager : MonoBehaviour
     //Same as the above
     public float timeToSpawnArmor;
     public float maxArmorSpawnTime;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +52,12 @@ public class GunSpawnManager : MonoBehaviour
         gunCount = 0;
         //This is the default number of armor vests
         armorCount = 0;
+
+        //This locates every gameobject that is tagged "Spawns"
+        daSpawns = GameObject.FindGameObjectsWithTag("Spawns");
+
+        
+
     }
 
     // Update is called once per frame
@@ -57,36 +69,42 @@ public class GunSpawnManager : MonoBehaviour
         //Same as above
         timeToSpawnArmor += Time.deltaTime;
 
-
-
-        //The if statement that spawns the guns
-        if (timeToSpawnGun >= maxGunSpawnTime && gunCount < 3) 
+        //This should be used so that every spawnpoint can be checked for if it's occupied or not?
+        foreach (GameObject spawns in daSpawns) 
         {
-            //Maybe try to add the spawn to an array and make NOT being on that array a part of spawning?
-            //spawnOccupied.notHere.Contains()
+            //The if statement that spawns the guns
+            if (timeToSpawnGun >= maxGunSpawnTime && gunCount < 3 && spawns.GetComponent<SpawnOccupied>().isOccupied == false)
+            {
+                //Maybe try to add the spawn to an array and make NOT being on that array a part of spawning?
+                //spawnOccupied.notHere.Contains()
 
-            //Lets the code know a gun is on the stage. When a gun is picked up, this should be reduced.
-            gunCount++;
+                //Lets the code know a gun is on the stage. When a gun is picked up, this should be reduced.
+                gunCount++;
 
-            //Resets the time back down to 0
-            timeToSpawnGun -= maxGunSpawnTime;
+                //Resets the time back down to 0
+                timeToSpawnGun -= maxGunSpawnTime;
 
-            //Picks one of the spawnpoints randomly from a list, then spawns the gun in that position.
-            Instantiate(spawnableGun,spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
+                //Picks one of the spawnpoints randomly from a list, then spawns the gun in that position.
+                Instantiate(spawnableGun, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
+            }
+
+            //Same as above but for armor
+            if (timeToSpawnArmor >= maxArmorSpawnTime && armorCount < 2 && spawns.GetComponent<SpawnOccupied>().isOccupied == false)
+            {
+
+                //&& spawnOccupied.isOccupied == false
+                //Lets the code know a armor vest is on the stage. When a vest is picked up, this should be reduced.
+                armorCount++;
+
+                //Resets the time back down to 0
+                timeToSpawnArmor -= maxArmorSpawnTime;
+
+                //Picks one of the spawnpoints randomly from a list, then spawns the gun in that position.
+                Instantiate(spawnableArmor, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
+            }
         }
 
-        //Same as above but for armor
-        if (timeToSpawnArmor >= maxArmorSpawnTime && armorCount < 2)
-        {
-            //Lets the code know a armor vest is on the stage. When a vest is picked up, this should be reduced.
-            armorCount++;
-
-            //Resets the time back down to 0
-            timeToSpawnArmor -= maxArmorSpawnTime;
-
-            //Picks one of the spawnpoints randomly from a list, then spawns the gun in that position.
-            Instantiate(spawnableArmor, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
-        }
+        
 
     }
 }
