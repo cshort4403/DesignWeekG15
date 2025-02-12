@@ -169,7 +169,7 @@
                 {
                     "name": "",
                     "id": "8ab717fb-5b81-4eef-880e-089b8bb5a6ac",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

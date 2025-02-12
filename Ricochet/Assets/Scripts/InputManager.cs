@@ -10,7 +10,6 @@ public class InputManager : MonoBehaviour
 {
 	PlayerInput pInput;
 	MovePlayer _MovePlayer;
-	GunBehavior _Gun;
 
 	private void Awake()
 	{
@@ -20,8 +19,7 @@ public class InputManager : MonoBehaviour
 		var movers = FindObjectsOfType<MovePlayer>();
 
 		_MovePlayer = movers.FirstOrDefault(m => m.GetPlayerIndex()==index);
-		_Gun = _MovePlayer.GetComponentInChildren<GunBehavior>();
-
+		
 	}
 
 	// Start is called before the first frame update
@@ -40,13 +38,14 @@ public class InputManager : MonoBehaviour
     {
 		_MovePlayer.SetInputVector(context.ReadValue<Vector2>());
     }
+
 	public void OnRotate(CallbackContext context)
 	{
-		_Gun.SetRotateVector(context.ReadValue<Vector2>());
+		_MovePlayer.GetComponentInChildren<RotateGun>().SetRotateVector(context.ReadValue<Vector2>());
 	}
 	public void OnShoot(CallbackContext context)
 	{
-		_Gun.Shoot(context.ReadValueAsButton());
+		
 	}
 
 
