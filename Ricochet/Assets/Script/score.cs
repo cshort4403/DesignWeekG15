@@ -9,12 +9,8 @@ public class score : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (scoreText == null)
-        {
-            // Initialize the score display
-            UpdateScoreDisplay(); 
-        }
-        
+        // Initialize the score display
+        UpdateScoreDisplay();
     }
 
     // Update is called once per frame
@@ -23,8 +19,8 @@ public class score : MonoBehaviour
         //add increment to score
         if (Input.GetKeyDown(KeyCode.Space))
         {
-        AddScore(1);
-            
+            AddScore(1);
+
         }
     }
     /*
@@ -34,13 +30,16 @@ public class score : MonoBehaviour
         AddScore();
     }*/
     void AddScore(int amount)
-    {
+    {   //add increment to score
         scoreCount += amount;
+        //update score
         UpdateScoreDisplay();
-            
+
     }
+    //create function to display updated score
     void UpdateScoreDisplay()
-    {scoreText.text =  scoreCount.ToString();
+    {   //display updated score
+        scoreText.text = scoreCount.ToString();
 
     }
 }

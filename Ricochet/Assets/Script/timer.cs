@@ -22,10 +22,10 @@ public class Timer : MonoBehaviour
             if (timeIsRunning)
             {
                 if (timeLeft > 0)
-                {  
+                {
                     UpdateTimer(timeLeft);
                     timeLeft -= Time.deltaTime;
-                    
+
                 }
                 else
                 {   //display text "Time Up" on console
@@ -49,6 +49,6 @@ public class Timer : MonoBehaviour
         //input mins and secs variable in desired format
         CountdownTime.text = string.Format("{00:00}:{01:00}", mins, secs);
 
-        
+
     }
 }
