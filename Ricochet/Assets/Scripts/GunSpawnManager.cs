@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class GunSpawnManager : MonoBehaviour
 {
-    //A reference to the SpawnOccupied script
-    //public SpawnOccupied spawnOccupied;
-
     //Rather then the above that gets the script itself, this can be used to find all the game objects that are tagged as spawnpoints
     public GameObject[] daSpawns;
 
@@ -37,8 +34,6 @@ public class GunSpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Maybe put something to the effect of spawnOccupied = FindObjectOfType<TetrisManager>(); here? Maybe with [] in there somewhere?
-
         //timeToSpawnGun is supposed to count up from 0 until it reaches maxGunSpawnTime, then that can be used to trigger the spawn. Can / should be replaced later when we 
         //have actual guns in the character's hands.
         timeToSpawnGun = 0.0f;
@@ -55,9 +50,6 @@ public class GunSpawnManager : MonoBehaviour
 
         //This locates every gameobject that is tagged "Spawns"
         daSpawns = GameObject.FindGameObjectsWithTag("Spawns");
-
-        
-
     }
 
     // Update is called once per frame
@@ -103,8 +95,5 @@ public class GunSpawnManager : MonoBehaviour
                 Instantiate(spawnableArmor, spawns.transform.position, Quaternion.identity);
             }
         }
-
-        
-
     }
 }
