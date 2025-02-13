@@ -15,6 +15,9 @@ public class ExplosionBehaviour : MonoBehaviour
 
     bool IsColliding = false;
 
+    [SerializeField]
+    AudioClip Detonation;
+
     // Start is called before the first frame update
     void Start()
     {
