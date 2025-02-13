@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: P2_SPRITESHEET_GUN_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 1937
+        height: 1914
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b378883f33c75b64591bb48d9e00c40a
+      internalID: -1069301796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P2_SPRITESHEET_GUN_1
+      rect:
+        serializedVersion: 2
+        x: 1937
+        y: 6
+        width: 1937
+        height: 1914
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66aec08099908ce45965bee07a815bb7
+      internalID: -1426094239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P2_SPRITESHEET_GUN_2
+      rect:
+        serializedVersion: 2
+        x: 3874
+        y: 6
+        width: 1937
+        height: 1914
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d5190f83c00ea46b55a5a489450929
+      internalID: -1147434106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P2_SPRITESHEET_GUN_3
+      rect:
+        serializedVersion: 2
+        x: 5811
+        y: 6
+        width: 1937
+        height: 1914
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9057a14ea49179949b2962a29d3794e7
+      internalID: 1606901979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +190,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      P2_SPRITESHEET_GUN_0: -1069301796
+      P2_SPRITESHEET_GUN_1: -1426094239
+      P2_SPRITESHEET_GUN_2: -1147434106
+      P2_SPRITESHEET_GUN_3: 1606901979
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
