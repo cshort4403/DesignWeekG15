@@ -145,7 +145,7 @@ MonoBehaviour:
   - {x: -0.37428665, y: 0.47669518, z: 0}
   m_ShapePathHash: 1136576859
   m_Mesh: {fileID: 0}
-  m_InstanceId: 118110
+  m_InstanceId: 157596
   m_LocalBounds:
     m_Center: {x: 0.02078724, y: 0.026609302, z: 0}
     m_Extent: {x: 0.6021948, y: 0.67610264, z: 0}
@@ -256,7 +256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5289467846647306523, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_InstanceId
-      value: -1276420
+      value: -1474838
       objectReference: {fileID: 0}
     - target: {fileID: 6964222514561615123, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -272,31 +272,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6964222514561615123, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.58811486
+      value: 0.61237246
       objectReference: {fileID: 0}
     - target: {fileID: 6964222514561615123, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.39258236
+      value: -0.3535534
       objectReference: {fileID: 0}
     - target: {fileID: 6964222514561615123, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.39258236
+      value: 0.3535534
       objectReference: {fileID: 0}
     - target: {fileID: 6964222514561615123, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.58811486
+      value: -0.61237246
       objectReference: {fileID: 0}
     - target: {fileID: 6964222514561615123, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -67.448
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6964222514561615123, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6964222514561615123, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -57,12 +57,13 @@ public class GunBehavior : MonoBehaviour
 		{
 			float angle = transform.parent.rotation.eulerAngles.z;
 
-			GameObject b = Instantiate(bullet, transform.position, transform.parent.rotation);
-			b.GetComponent<BulletBehavior>().SetMoveDirection(new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)));
+			GameObject b = Instantiate(bullet, transform.position, Quaternion.Euler(0,0,angle - 90));
 			b.GetComponent<BulletBehavior>().pIndex = GetComponentInParent<MovePlayer>().GetPlayerIndex();
-			HasShot = true;
+			//HasShot = true;
 			AudioSource.PlayClipAtPoint(ShootClips[0], transform.position);
 			hasPLayedShellDrop = false;
+
+			Debug.Log($"Shot at {angle}");
 		}
 		
 	}

@@ -12,19 +12,19 @@ public class BulletBehavior : MonoBehaviour
     [SerializeField]
     float maxAliveTime = 2;
 
-    Vector2 MoveDirection = Vector2.zero;
-
     float aliveTime = 0;
 
     public int pIndex = 0;
 
     bool IsColliding = false;
-    
+
+    Rigidbody2D rb2d;
 
     // Start is called before the first frame update
     void Start()
     {
-		
+		rb2d = GetComponent<Rigidbody2D>();
+		rb2d.velocity = transform.right * speed;
 	}
 
     // Update is called once per frame
@@ -36,33 +36,21 @@ public class BulletBehavior : MonoBehaviour
         }
         else
         {
-            Move();
 			aliveTime += Time.deltaTime;
         }
     }
-    void Move()
-    {
-        Vector2 newDir = transform.TransformDirection(MoveDirection);
-		transform.Translate(newDir * speed * Time.deltaTime);
-	}
-
-    public void SetMoveDirection(Vector2 moveDir)
-    {
-        MoveDirection = moveDir;
-     
-        Debug.Log($"Set bullet movedirection to {MoveDirection}. Input was {moveDir}");
-       
-    }
-
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
         if (!IsColliding)
         {
 			if (collision.gameObject.CompareTag("Wall") && numBounces > 0)
             {
-                SetMoveDirection(Vector3.Reflect(MoveDirection, collision.GetContact(0).normal));
+				transform.right = Vector3.Reflect(transform.right, collision.contacts[0].normal);
+				rb2d.velocity = transform.right * speed;
+				// transform.Rotate(newRot);
 				IsColliding = true;
 				numBounces--;
+                Debug.Log($"Wall collision {rb2d.velocity}");
             }
             else if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != pIndex)
             {
