@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1730905826936949768}
   - component: {fileID: 6963211087886762006}
   - component: {fileID: 5653713030219761793}
+  - component: {fileID: 8206734434142692548}
   m_Layer: 8
   m_Name: Explosion_Temp
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.3, y: 1.83, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4154129002648662150}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -228313421
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 512031530, guid: 5fa335fabc6a54241a91c16f2d738df8, type: 3}
   m_Color: {r: 1, g: 0.61688113, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blastMaxAliveTime: 0.5
   bPIndex: 0
+  rend: {fileID: 0}
 --- !u!50 &6963211087886762006
 Rigidbody2D:
   serializedVersion: 4
@@ -163,7 +165,28 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
+--- !u!95 &8206734434142692548
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5897052597363892948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d555c9dfbc8fece45a25e7cb54abf32e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4781538533846044147
 PrefabInstance:
   m_ObjectHideFlags: 0

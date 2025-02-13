@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosionBehaviour : MonoBehaviour
 {
     [SerializeField]
-    float blastMaxAliveTime = 3f;
+    float blastMaxAliveTime = 5f;
 
     float blastAliveTime = 0f;
 
@@ -33,7 +33,6 @@ public class ExplosionBehaviour : MonoBehaviour
         }
         else
         {
-            FadeOut();
             blastAliveTime += Time.deltaTime;
         }
     }
@@ -48,21 +47,5 @@ public class ExplosionBehaviour : MonoBehaviour
                 Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
             }
         }
-    }
-
-    IEnumerator FadeOut()
-    {
-        for (float f = 1f; f >= -0.05f; f -= 0.05f)
-        {
-            Color c = rend.material.color;
-            c.a = f;
-            rend.material.color = c;
-            yield return new WaitForSeconds(0.05f);
-        }
-    }
-
-    public void startFading()
-    {
-        StartCoroutine(FadeOut());
     }
 }
