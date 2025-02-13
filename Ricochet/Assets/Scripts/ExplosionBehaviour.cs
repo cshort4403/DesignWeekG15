@@ -11,16 +11,14 @@ public class ExplosionBehaviour : MonoBehaviour
 
     Rigidbody2D rb2D;
 
-    public int bPIndex = 0;
+    //public int pIndex = 0;
 
-    public SpriteRenderer rend;
+    bool IsColliding = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-
-        rend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -39,12 +37,17 @@ public class ExplosionBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != bPIndex)
+        if (!IsColliding)
         {
-            foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+            if (collision.gameObject.CompareTag("Player"))
             {
-                g.GetComponent<MovePlayer>().ResetPosition();
-                Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
+                //&& collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != pIndex
+                IsColliding = true;
+                foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    g.GetComponent<MovePlayer>().ResetPosition();
+                    Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
+                }
             }
         }
     }
