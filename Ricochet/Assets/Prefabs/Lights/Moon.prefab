@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2355204228414913841
+--- !u!1 &8831650266603509234
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 397784631090713572}
-  - component: {fileID: 4230788508744755567}
+  - component: {fileID: 7318275230459219267}
+  - component: {fileID: 3871350360117116948}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &397784631090713572
+--- !u!4 &7318275230459219267
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2355204228414913841}
+  m_GameObject: {fileID: 8831650266603509234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4230788508744755567
+--- !u!114 &3871350360117116948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2355204228414913841}
+  m_GameObject: {fileID: 8831650266603509234}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -49,10 +49,10 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: eda281ec00000000a75bb0849b4aada8
+  m_ApplyToSortingLayers: d3aa0e4a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -62,23 +62,23 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 1
-  m_ShadowIntensity: 1
+  m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 1
+  m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3711853, y: 0.78222656, z: 0}
-    m_Extent: {x: 1016.00037, y: 993.50085, z: 0}
+    m_Center: {x: -0.00025177002, y: -3.0001001, z: 0}
+    m_Extent: {x: 43.00045, y: 27.0009, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightInnerRadius: 20
+  m_PointLightOuterRadius: 50
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 990
+  m_ShapeLightFalloffSize: 25
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -26.37095, y: -2.7176113, z: 0}
-  - {x: 25.62905, y: -2.7176113, z: 0}
-  - {x: 25.62905, y: 4.2823887, z: 0}
-  - {x: -26.37095, y: 4.2823887, z: 0}
+  - {x: -18, y: -5, z: 0}
+  - {x: 18, y: -5, z: 0}
+  - {x: 18, y: -1, z: 0}
+  - {x: -18, y: -1, z: 0}

@@ -12,19 +12,20 @@ public class BulletBehavior : MonoBehaviour
     [SerializeField]
     float maxAliveTime = 2;
 
-    Vector2 MoveDirection;
-    Rigidbody2D rb2D;
-
     float aliveTime = 0;
 
     public int pIndex = 0;
-    
+
+    bool IsColliding = false;
+
+    Rigidbody2D rb2d;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
-    }
+		rb2d = GetComponent<Rigidbody2D>();
+		rb2d.velocity = transform.right * speed;
+	}
 
     // Update is called once per frame
     void Update()
@@ -35,41 +36,48 @@ public class BulletBehavior : MonoBehaviour
         }
         else
         {
-            rb2D.velocity = speed * Time.deltaTime * MoveDirection;
-            aliveTime += Time.deltaTime;
+			aliveTime += Time.deltaTime;
         }
     }
-
-    public void SetMoveDirection(Vector2 moveDir)
-    {
-        MoveDirection = moveDir;
-    }
-
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collision.gameObject.CompareTag("Wall") && numBounces > 0) 
+        if (!IsColliding)
         {
-            SetMoveDirection(Vector3.Reflect(MoveDirection, collision.GetContact(0).normal));
-            numBounces--;
-        }
-        else if (numBounces <= 0)
-        {
-            Destroy(gameObject);
-        }
-
-        if(collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != pIndex)
-        {
-            foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+			if (collision.gameObject.CompareTag("Wall") && numBounces > 0)
             {
-                g.GetComponent<MovePlayer>().ResetPosition();
-                Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
+				transform.right = Vector3.Reflect(transform.right, collision.contacts[0].normal);
+				rb2d.velocity = transform.right * speed;
+				// transform.Rotate(newRot);
+				IsColliding = true;
+				numBounces--;
+                Debug.Log($"Wall collision {rb2d.velocity}");
             }
-            //Change Score
+            else if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != pIndex)
+            {
+				IsColliding = true;
+				foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    g.GetComponent<MovePlayer>().ResetPosition();
+                    Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
+                }
+                //Change Score
 
-			Destroy(gameObject);
+                Destroy(gameObject);
+            }
+            else if (numBounces <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
+	}
 
-
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Wall"))
+		{
+			IsColliding = false;
+		}
+		 //Only check collisions once
 	}
 
 }

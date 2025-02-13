@@ -42,7 +42,7 @@ public class InputManager : MonoBehaviour
     }
 	public void OnRotate(CallbackContext context)
 	{
-		_Gun.SetRotateVector(context.ReadValue<Vector2>());
+		_MovePlayer.SetRotateVector(context.ReadValue<Vector2>());
 	}
 	public void OnShoot(CallbackContext context)
 	{

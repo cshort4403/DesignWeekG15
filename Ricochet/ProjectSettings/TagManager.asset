@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Decor
+  - Items
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: LightBottom
+    uniqueID: 4066653875
+    locked: 0
+  - name: LightMid
+    uniqueID: 3792730665
+    locked: 0
+  - name: LightTop
+    uniqueID: 1242475219
     locked: 0

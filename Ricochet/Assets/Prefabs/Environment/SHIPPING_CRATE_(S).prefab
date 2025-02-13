@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5401421055598329231}
   - component: {fileID: -3535882421399552757}
   - component: {fileID: -7087012902442381678}
-  - component: {fileID: 9181165173247136154}
+  - component: {fileID: 7719244527080709922}
   m_Layer: 9
   m_Name: SHIPPING_CRATE_(S)
   m_TagString: Wall
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -502236631
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d4fc35d0a8820d644b797432cfd2ae61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,16 +121,16 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.1875, y: 0.065, z: 0.1775, w: 0.0875}
+    border: {x: 0.09765625, y: 0.05859375, z: 0.09765625, w: 0.07324219}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.5275, y: 4.17}
+    oldSize: {x: 1.7685547, y: 1.6289062}
     newSize: {x: 18.11, y: 16.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 1.6, y: 1.6}
   m_EdgeRadius: 0
 --- !u!50 &-7087012902442381678
 Rigidbody2D:
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &9181165173247136154
+--- !u!114 &7719244527080709922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,16 +176,16 @@ MonoBehaviour:
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: b33664f2
   m_ShapePath:
-  - {x: -2, y: -2, z: 0}
-  - {x: -2, y: 2, z: 0}
-  - {x: 2, y: 2, z: 0}
-  - {x: 2, y: -2, z: 0}
-  m_ShapePathHash: 1268118805
+  - {x: -0.8, y: -0.8, z: 0}
+  - {x: -0.8, y: 0.8, z: 0}
+  - {x: 0.8, y: 0.8, z: 0}
+  - {x: 0.8, y: -0.8, z: 0}
+  m_ShapePathHash: 1460473953
   m_Mesh: {fileID: 0}
-  m_InstanceId: 38600
+  m_InstanceId: 82634
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 2, y: 2, z: 0}
+    m_Extent: {x: 0.8, y: 0.8, z: 0}
