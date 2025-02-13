@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosionBehaviour : MonoBehaviour
 {
     [SerializeField]
-    float blastMaxAliveTime = 0.2f;
+    float blastMaxAliveTime = 3f;
 
     float blastAliveTime = 0f;
 
@@ -13,21 +13,27 @@ public class ExplosionBehaviour : MonoBehaviour
 
     public int bPIndex = 0;
 
+    public SpriteRenderer rend;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+
+        rend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (blastAliveTime >= blastMaxAliveTime)
         {
             Destroy(gameObject);
         }
         else
         {
+            FadeOut();
             blastAliveTime += Time.deltaTime;
         }
     }
@@ -41,11 +47,22 @@ public class ExplosionBehaviour : MonoBehaviour
                 g.GetComponent<MovePlayer>().ResetPosition();
                 Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
             }
-            //Change Score
-
-            Destroy(gameObject);
         }
+    }
 
+    IEnumerator FadeOut()
+    {
+        for (float f = 1f; f >= -0.05f; f -= 0.05f)
+        {
+            Color c = rend.material.color;
+            c.a = f;
+            rend.material.color = c;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
 
+    public void startFading()
+    {
+        StartCoroutine(FadeOut());
     }
 }
