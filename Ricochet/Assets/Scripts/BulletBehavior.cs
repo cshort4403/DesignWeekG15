@@ -12,19 +12,20 @@ public class BulletBehavior : MonoBehaviour
     [SerializeField]
     float maxAliveTime = 2;
 
-    Vector2 MoveDirection;
-    Rigidbody2D rb2D;
+    Vector2 MoveDirection = Vector2.zero;
 
     float aliveTime = 0;
 
     public int pIndex = 0;
+
+    bool IsColliding = false;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
-    }
+		
+	}
 
     // Update is called once per frame
     void Update()
@@ -35,41 +36,60 @@ public class BulletBehavior : MonoBehaviour
         }
         else
         {
-            rb2D.velocity = speed * Time.deltaTime * MoveDirection;
-            aliveTime += Time.deltaTime;
+            Move();
+			aliveTime += Time.deltaTime;
         }
     }
+    void Move()
+    {
+        Vector2 newDir = transform.TransformDirection(MoveDirection);
+		transform.Translate(newDir * speed * Time.deltaTime);
+	}
 
     public void SetMoveDirection(Vector2 moveDir)
     {
         MoveDirection = moveDir;
+     
+        Debug.Log($"Set bullet movedirection to {MoveDirection}. Input was {moveDir}");
+       
     }
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collision.gameObject.CompareTag("Wall") && numBounces > 0) 
+        if (!IsColliding)
         {
-            SetMoveDirection(Vector3.Reflect(MoveDirection, collision.GetContact(0).normal));
-            numBounces--;
-        }
-        else if (numBounces <= 0)
-        {
-            Destroy(gameObject);
-        }
-
-        if(collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != pIndex)
-        {
-            foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+			if (collision.gameObject.CompareTag("Wall") && numBounces > 0)
             {
-                g.GetComponent<MovePlayer>().ResetPosition();
-                Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
+                SetMoveDirection(Vector3.Reflect(MoveDirection, collision.GetContact(0).normal));
+				IsColliding = true;
+				numBounces--;
             }
-            //Change Score
+            else if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != pIndex)
+            {
+				IsColliding = true;
+				foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    g.GetComponent<MovePlayer>().ResetPosition();
+                    Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
+                }
+                //Change Score
 
-			Destroy(gameObject);
+                Destroy(gameObject);
+            }
+            else if (numBounces <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
+	}
 
-
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Wall"))
+		{
+			IsColliding = false;
+		}
+		 //Only check collisions once
 	}
 
 }

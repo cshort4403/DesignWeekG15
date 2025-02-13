@@ -18,6 +18,9 @@ public class MovePlayer : MonoBehaviour
 	Vector3 StartPosition = Vector3.zero;
 	float StartRotation = 0f;
 
+	Vector2 RotateVector = Vector2.zero;
+	Vector2 PrevRotate = Vector2.zero;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -29,7 +32,8 @@ public class MovePlayer : MonoBehaviour
     void Update()
     {
         Move();
-    }
+		Rotate();
+	}
 
 	
 
@@ -52,6 +56,21 @@ public class MovePlayer : MonoBehaviour
 		MoveDirection *= MoveSpeed;
 
 		transform.Translate(MoveDirection * Time.deltaTime);
+	}
+	public void SetRotateVector(Vector2 direction)
+	{
+		RotateVector = direction;
+	}
+	private void Rotate()
+	{
+		if (RotateVector != Vector2.zero)
+		{
+			PrevRotate = RotateVector;
+		}
+
+		float angle = Mathf.Atan2(PrevRotate.y, PrevRotate.x) * Mathf.Rad2Deg + 90;
+		transform.GetChild(0).rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		
 	}
 
 	public void ResetPosition()

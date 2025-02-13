@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4833332565107572821}
   - component: {fileID: -4496681646527596571}
   - component: {fileID: -3372814940929226412}
-  - component: {fileID: -661523645447576213}
+  - component: {fileID: 1356449252263992234}
   m_Layer: 11
   m_Name: WALL
   m_TagString: Wall
@@ -73,15 +73,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1242475219
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 623b2b2f2e137cc45b0a8cce03e83de0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 34.262383, y: 8.85}
+  m_Size: {x: 6.691871, y: 1.7285156}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -121,16 +121,16 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1.0768753, y: 0.7792969, z: 0.9752465, w: 0.6777344}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.565596, y: 2.2125}
-    newSize: {x: 34.262383, y: 8.85}
+    oldSize: {x: 6.691871, y: 1.7285156}
+    newSize: {x: 6.691871, y: 1.7285156}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.5, y: 1.2}
+  m_Size: {x: 6, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &-3372814940929226412
 Rigidbody2D:
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-661523645447576213
+--- !u!114 &1356449252263992234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,16 +176,16 @@ MonoBehaviour:
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 297a10e2b33664f2d3aa0e4a
   m_ShapePath:
-  - {x: -3.75, y: -0.6, z: 0}
-  - {x: -3.75, y: 0.6, z: 0}
-  - {x: 3.75, y: 0.6, z: 0}
-  - {x: 3.75, y: -0.6, z: 0}
-  m_ShapePathHash: 2029953237
+  - {x: -3, y: -0.5, z: 0}
+  - {x: -3, y: 0.5, z: 0}
+  - {x: 3, y: 0.5, z: 0}
+  - {x: 3, y: -0.5, z: 0}
+  m_ShapePathHash: 353760533
   m_Mesh: {fileID: 0}
-  m_InstanceId: 38838
+  m_InstanceId: -142716
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 3.75, y: 0.6, z: 0}
+    m_Extent: {x: 3, y: 0.5, z: 0}
