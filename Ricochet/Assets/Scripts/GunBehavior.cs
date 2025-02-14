@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class GunBehavior : MonoBehaviour
@@ -11,8 +10,7 @@ public class GunBehavior : MonoBehaviour
 	[SerializeField]
 	float MaxFireDistance = 10f;
 
-	[SerializeField]
-	bool HasShot = false;
+	public bool HasShot = true;
 
 	[SerializeField]
 	GameObject bullet;
@@ -28,15 +26,6 @@ public class GunBehavior : MonoBehaviour
 
 	bool hasPLayedShellDrop = false;
 
-	public GameObject MuzzleFlash;
-
-	float flashTimeLapse = 0;
-
-	[SerializeField]
-	public float maxFlashTime = 0.85f;
-	
-	public bool flashing = false;
-
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -48,29 +37,16 @@ public class GunBehavior : MonoBehaviour
 	{
 		if(TimeSinceShot >= ShellDropDelay && !hasPLayedShellDrop)
 		{
-			Debug.Log("Shell Drop");
 			AudioSource.PlayClipAtPoint(ShellDropClip, transform.position);
 			TimeSinceShot = 0;
-			hasPLayedShellDrop = true;
-
-        }
+			hasPLayedShellDrop= true;
+		}
 		else if(HasShot && !hasPLayedShellDrop)
 		{
 			TimeSinceShot += Time.deltaTime;
 		}
 
-		if(flashing = true && flashTimeLapse <= maxFlashTime)
-		{
-			flashTimeLapse += Time.deltaTime;
-        }
-		else if (flashing = true && flashTimeLapse >= maxFlashTime)
-		{
-            MuzzleFlash.SetActive(false);
-			flashing = false;
-			flashTimeLapse = 0f;
-        }
-
-    }
+	}
 	
 	
 	public void Shoot(bool shooting)
@@ -81,14 +57,11 @@ public class GunBehavior : MonoBehaviour
 
 			GameObject b = Instantiate(bullet, transform.position, Quaternion.Euler(0,0,angle - 90));
 			b.GetComponent<BulletBehavior>().pIndex = GetComponentInParent<MovePlayer>().GetPlayerIndex();
-			//HasShot = true;
+			HasShot = true;
 			AudioSource.PlayClipAtPoint(ShootClips[0], transform.position);
 			hasPLayedShellDrop = false;
 
-            MuzzleFlash.SetActive(true);
-            flashing = true;
-
-            Debug.Log($"Shot at {angle}");
+			Debug.Log($"Shot at {angle}");
 		}
 		
 	}

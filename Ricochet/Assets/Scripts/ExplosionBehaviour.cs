@@ -23,14 +23,14 @@ public class ExplosionBehaviour : MonoBehaviour
     [SerializeField]
     AudioClip Detonation;
 
-    //float blastWaveDelay = 0.5f;
+    float blastWaveDelay = 0.5f;
 
-    //[SerializeField]
-    //bool HasKaboomed = false;
+    [SerializeField]
+    bool HasKaboomed = false;
 
-    //float TimeSinceBoom = 0f;
+    float TimeSinceBoom = 0f;
 
-    //bool hasPLayedTheBoom = false;
+    bool hasPLayedTheBoom = false;
 
     // Start is called before the first frame update
     void Start()

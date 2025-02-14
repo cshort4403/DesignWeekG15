@@ -1,10 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 
 public class BulletBehavior : MonoBehaviour
 {
@@ -22,10 +19,6 @@ public class BulletBehavior : MonoBehaviour
     bool IsColliding = false;
 
     Rigidbody2D rb2d;
-
-    public TextMeshProUGUI Score;
-
-    public TextMeshProUGUI Score1;
 
     // Start is called before the first frame update
     void Start()
@@ -46,40 +39,34 @@ public class BulletBehavior : MonoBehaviour
 			aliveTime += Time.deltaTime;
         }
     }
+
+    public void Bounce(Vector3 normal)
+    {
+        transform.right = Vector3.Reflect(transform.right, normal);
+		rb2d.velocity = transform.right * speed;
+		numBounces--;
+    }
+
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
         if (!IsColliding)
         {
 			if (collision.gameObject.CompareTag("Wall") && numBounces > 0)
             {
-				transform.right = Vector3.Reflect(transform.right, collision.contacts[0].normal);
-				rb2d.velocity = transform.right * speed;
+                Bounce(collision.contacts[0].normal);
 				// transform.Rotate(newRot);
 				IsColliding = true;
-				numBounces--;
                 Debug.Log($"Wall collision {rb2d.velocity}");
             }
             else if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != pIndex)
             {
-                if (pIndex == 0)
-                {
-                    Score.GetComponent<score>().AddScore(1);
-                }
-                else if (pIndex == 1)
-                {
-                    Score1.GetComponent<score1>().AddScore(1);
-                }
+				IsColliding = true;
 
-                IsColliding = true;
-				foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+                if (collision.gameObject.GetComponent<PlayerStateManager>().HasShield == false)
                 {
-                    g.GetComponent<MovePlayer>().ResetPosition();
-                    Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
-
+                    Destroy(gameObject);
                 }
-                //Change Score
-
-                Destroy(gameObject);
+                
             }
             else if (numBounces <= 0)
             {

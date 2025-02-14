@@ -78,7 +78,8 @@ public class GunSpawnManager : MonoBehaviour
 
                 //Picks one of the spawnpoints randomly from a list, then spawns the gun in that position.
                 Instantiate(spawnableGun, spawns.transform.position, Quaternion.identity);
-            }
+				spawns.GetComponent<SpawnOccupied>().isOccupied = true;
+			}
 
             //Same as above but for armor
             if (timeToSpawnArmor >= maxArmorSpawnTime && armorCount < 2 && spawns.GetComponent<SpawnOccupied>().isOccupied == false)
@@ -93,7 +94,9 @@ public class GunSpawnManager : MonoBehaviour
 
                 //Picks one of the spawnpoints randomly from a list, then spawns the gun in that position.
                 Instantiate(spawnableArmor, spawns.transform.position, Quaternion.identity);
-            }
+				spawns.GetComponent<SpawnOccupied>().isOccupied = true;
+
+			}
         }
     }
 }

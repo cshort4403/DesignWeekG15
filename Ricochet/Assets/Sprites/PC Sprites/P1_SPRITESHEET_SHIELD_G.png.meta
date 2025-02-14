@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a03686e5efa838a42b09cbec93a847d1
+guid: 89ce28fd5e7b46445af3303eba2481a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1024
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: P2_SPRITESHEET_GUN_0
+      name: P1_SPRITESHEET_SHIELD_G_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 6
-        width: 1937
-        height: 1914
+        y: 66
+        width: 495
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b378883f33c75b64591bb48d9e00c40a
-      internalID: -1069301796
+      spriteID: 111031aca489cce4c832045c77516cc9
+      internalID: 859518988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P2_SPRITESHEET_GUN_1
+      name: P1_SPRITESHEET_SHIELD_G_1
       rect:
         serializedVersion: 2
-        x: 1937
-        y: 6
-        width: 1937
-        height: 1914
+        x: 495
+        y: 66
+        width: 495
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66aec08099908ce45965bee07a815bb7
-      internalID: -1426094239
+      spriteID: fdd5e2ed05db451459cd7a3325fb0f20
+      internalID: -902012584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P2_SPRITESHEET_GUN_2
+      name: P1_SPRITESHEET_SHIELD_G_2
       rect:
         serializedVersion: 2
-        x: 3874
-        y: 6
-        width: 1937
-        height: 1914
+        x: 990
+        y: 66
+        width: 495
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87d5190f83c00ea46b55a5a489450929
-      internalID: -1147434106
+      spriteID: d9e5e22d4fd3713418b6cb0780c114f0
+      internalID: 963527424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: P2_SPRITESHEET_GUN_3
+      name: P1_SPRITESHEET_SHIELD_G_3
       rect:
         serializedVersion: 2
-        x: 5811
-        y: 6
-        width: 1937
-        height: 1914
+        x: 1485
+        y: 66
+        width: 495
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9057a14ea49179949b2962a29d3794e7
-      internalID: 1606901979
+      spriteID: 77e391d619d8d654e984a627f72fec24
+      internalID: 478909731
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      P2_SPRITESHEET_GUN_0: -1069301796
-      P2_SPRITESHEET_GUN_1: -1426094239
-      P2_SPRITESHEET_GUN_2: -1147434106
-      P2_SPRITESHEET_GUN_3: 1606901979
+      P1_SPRITESHEET_SHIELD_G_0: 859518988
+      P1_SPRITESHEET_SHIELD_G_1: -902012584
+      P1_SPRITESHEET_SHIELD_G_2: 963527424
+      P1_SPRITESHEET_SHIELD_G_3: 478909731
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
