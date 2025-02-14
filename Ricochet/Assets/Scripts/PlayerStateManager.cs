@@ -4,138 +4,86 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum PlayerState
-{ 
-    DEFAULT = 0,
-    HAS_WEAPON = 1,
-    HAS_SHIELD = 2,
-    HAS_WEAPON_AND_SHIELD = 3
-}
 
 public class PlayerStateManager : MonoBehaviour
 {
-    public PlayerState CurState { get; private set; }
 
-	[SerializeField] Dictionary<PlayerState, List<Sprite>> SpritesForPlayerStates;
+	public bool HasWeapon = false;
+	public bool HasShield = false;
 
-	[SerializeField] float framesPerSecond = 30;
-
-    bool StateChanged = false;
-
-	float timeSinceLastFrame = 0;
-	int CurFrame = 0;
+	GunBehavior GunBehavior;
+	Animator controller;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+		GunBehavior = GetComponentInChildren<GunBehavior>();
+        controller = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (StateChanged)
-		{
-			CurFrame=0;
-			ChangeImage();
-		}
 		AnimatePlayer();
-    }
-	public void ChangeState(PlayerState state)
-    {
-        CurState = state;
-    }
-    private void ChangeImage(int index = 0)
-    {
-		if (SpritesForPlayerStates[CurState][index] == null) return;
 
-        GetComponentInChildren<SpriteRenderer>().sprite = SpritesForPlayerStates[CurState][index];
-    }
-
-   private void AnimatePlayer()
-	{
-		if(timeSinceLastFrame >= 1/framesPerSecond)
+		if(HasWeapon && GunBehavior.HasShot)
 		{
-			if(CurFrame < SpritesForPlayerStates[CurState].Count)
-			{
-				CurFrame++;
-			}
-			else 
-			{
-				CurFrame = 0;
-			}
-			ChangeImage(CurFrame);
+			DropWeapon();
 		}
-		else { timeSinceLastFrame += Time.deltaTime; }
+    }
+
+
+	private void AnimatePlayer()
+	{
+		controller.SetBool("HasGun", HasWeapon);
+		controller.SetFloat("MoveSpeed", GetComponent<MovePlayer>().MoveDirection.magnitude);
 	}
 
 
 
-    public void PickUpWeapon()
+	public void PickUpWeapon()
     {
-		switch (CurState)
-		{
-			case PlayerState.DEFAULT:
-                ChangeState(PlayerState.HAS_WEAPON);
-                StateChanged = true;
-				break;
-			case PlayerState.HAS_SHIELD:
-				ChangeState(PlayerState.HAS_WEAPON_AND_SHIELD);
-				StateChanged = true;
-				break;
-			default:
-				break;
-		}
+        if (!HasWeapon)
+        {
+            HasWeapon = true;
+			GunBehavior.HasShot = false;
+        }
+        
     }
 	public void DropWeapon()
 	{
-		switch (CurState)
+		if (HasWeapon)
 		{
-			case PlayerState.HAS_WEAPON:
-				ChangeState(PlayerState.DEFAULT);
-				StateChanged = true;
-				break;
-			case PlayerState.HAS_WEAPON_AND_SHIELD:
-				ChangeState(PlayerState.HAS_SHIELD);
-				StateChanged = true;
-				break;
-			default:
-				break;
+			HasWeapon = false;
 		}
 	}
 	public void PickUpArmour()
 	{
-		switch (CurState)
+		if(!HasShield)
 		{
-			case PlayerState.DEFAULT:
-				ChangeState(PlayerState.HAS_SHIELD);
-				StateChanged = true;
-				break;
-			case PlayerState.HAS_WEAPON:
-				ChangeState(PlayerState.HAS_WEAPON_AND_SHIELD);
-				StateChanged = true;
-				break;
-			default:
-				break;
+			HasShield = true;
 		}
 	}
 	public void LoseArmor()
 	{
-		switch (CurState)
+		if (HasShield)
 		{
-			case PlayerState.HAS_SHIELD:
-				ChangeState(PlayerState.DEFAULT);
-				StateChanged = true;
-				break;
-			case PlayerState.HAS_WEAPON_AND_SHIELD:
-				ChangeState(PlayerState.HAS_WEAPON);
-				StateChanged = true;
-				break;
-			default:
-				break;
+			HasShield = false;
 		}
 	}
 
-
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+        if (other.gameObject.CompareTag("GunPickup"))
+        {
+			PickUpWeapon();
+			Destroy(other.gameObject);
+        }
+		if (other.gameObject.CompareTag("ShieldPickup"))
+		{
+			PickUpArmour();
+			Destroy(other.gameObject);
+		}
+	}
 
 }

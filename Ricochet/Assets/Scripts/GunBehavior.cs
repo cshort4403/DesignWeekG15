@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class GunBehavior : MonoBehaviour
@@ -11,8 +10,7 @@ public class GunBehavior : MonoBehaviour
 	[SerializeField]
 	float MaxFireDistance = 10f;
 
-	[SerializeField]
-	bool HasShot = false;
+	public bool HasShot = true;
 
 	[SerializeField]
 	GameObject bullet;
@@ -59,7 +57,7 @@ public class GunBehavior : MonoBehaviour
 
 			GameObject b = Instantiate(bullet, transform.position, Quaternion.Euler(0,0,angle - 90));
 			b.GetComponent<BulletBehavior>().pIndex = GetComponentInParent<MovePlayer>().GetPlayerIndex();
-			//HasShot = true;
+			HasShot = true;
 			AudioSource.PlayClipAtPoint(ShootClips[0], transform.position);
 			hasPLayedShellDrop = false;
 

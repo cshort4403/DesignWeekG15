@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
 	Vector2 InputVector = Vector2.zero;
-	Vector2 MoveDirection = Vector2.zero;
+	public Vector2 MoveDirection = Vector2.zero;
 
 
 	[SerializeField]

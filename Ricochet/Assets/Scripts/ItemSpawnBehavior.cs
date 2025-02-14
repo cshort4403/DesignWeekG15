@@ -16,6 +16,7 @@ public class ItemSpawnBehavior : MonoBehaviour
     float TimeSinceLastSpawn = 0f;
     bool IsOccupied = false;
 
+    GameObject OccupyingObject;
 
     // Start is called before the first frame update
     void Start()
@@ -41,14 +42,14 @@ public class ItemSpawnBehavior : MonoBehaviour
 				GetComponentInChildren<Light2D>().enabled = false;
 			}
         }
+        IsOccupied = OccupyingObject != null;
     }
 
-    private void SpawnItem()
+	private void SpawnItem()
     {
         if (IsOccupied) { return; }
 
-        Instantiate(ItemToSpawn, transform.position, Quaternion.identity);
-        IsOccupied = true; 
+        OccupyingObject= Instantiate(ItemToSpawn, transform.position, Quaternion.identity);
         TimeSinceLastSpawn = 0f;
 		GetComponentInChildren<Light2D>().enabled = true;
 	}

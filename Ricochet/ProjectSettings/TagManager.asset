@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Decor
   - Items
+  - GunPickup
+  - ShieldPickup
   layers:
   - Default
   - TransparentFX
