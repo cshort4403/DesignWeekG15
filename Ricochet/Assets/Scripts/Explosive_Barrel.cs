@@ -35,6 +35,7 @@ public class Explosive_Barrel : MonoBehaviour
             AudioSource.PlayClipAtPoint(BarrelMeetBullet, transform.position);
             Debug.Log("collision with bullets.");
             Instantiate(blast, this.transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
     }
