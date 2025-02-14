@@ -150,7 +150,7 @@ MonoBehaviour:
   - {x: -0.37428665, y: 0.47669518, z: 0}
   m_ShapePathHash: -1342696167
   m_Mesh: {fileID: 0}
-  m_InstanceId: 96526
+  m_InstanceId: 125164
   m_LocalBounds:
     m_Center: {x: -0.08699167, y: 0.05355388, z: 0}
     m_Extent: {x: 0.49441588, y: 0.51982343, z: 0}
@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1aff0bbf12479784892bf9616997f457, type: 3}
   - {fileID: 8300000, guid: f9b0a04564beae94298f45fe8fb7aba2, type: 3}
   - {fileID: 8300000, guid: 2a49ba84487bf5b4dadea93da5c036f4, type: 3}
+  - {fileID: 8300000, guid: d3a9b33a6d1af414dae96675440c0c23, type: 3}
   score: {fileID: 0}
   score1: {fileID: 0}
 --- !u!82 &7056023103288953135
@@ -401,6 +402,10 @@ PrefabInstance:
     - target: {fileID: 5147322077363705183, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: HasShot
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147322077363705183, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
+      propertyPath: ShootClips.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5289467846647306523, guid: 3c7a94da8678178498a285fdd5e8d7fb, type: 3}
       propertyPath: m_InstanceId

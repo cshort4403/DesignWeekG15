@@ -94,6 +94,11 @@ public class PlayerStateManager : MonoBehaviour
 		}
 	}
 
+	public void DoDyingAnim()
+	{
+
+	}
+
 	private void OnTriggerEnter2D(Collider2D other)
 	{
         if (other.gameObject.CompareTag("GunPickup"))
@@ -124,6 +129,7 @@ public class PlayerStateManager : MonoBehaviour
 				}
 				else
 				{
+					AudioSource.PlayOneShot(audioClips[4]);
 					GameManager.Instance.ResetLevel();
 					//Change Score for other player
 					if (collision.gameObject.GetComponent<BulletBehavior>().pIndex == 0)
