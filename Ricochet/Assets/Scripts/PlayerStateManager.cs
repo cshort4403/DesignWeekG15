@@ -32,10 +32,18 @@ public class PlayerStateManager : MonoBehaviour
 		}
     }
 
+	public void ResetPlayer()
+	{
+		HasWeapon = false;
+		HasShield = false;
+		GunBehavior.HasShot = false;
+		AnimatePlayer();
+	}
 
 	private void AnimatePlayer()
 	{
 		controller.SetBool("HasGun", HasWeapon);
+		controller.SetBool("HasShield", HasShield);
 		controller.SetFloat("MoveSpeed", GetComponent<MovePlayer>().MoveDirection.magnitude);
 	}
 
@@ -84,6 +92,29 @@ public class PlayerStateManager : MonoBehaviour
 		{
 			PickUpArmour(other.gameObject);
 			
+		}
+		
+	}
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Bullet"))
+		{
+			if (collision.gameObject.GetComponent<BulletBehavior>().pIndex != GetComponent<MovePlayer>().GetPlayerIndex())
+			{
+				if (HasShield)
+				{
+					LoseArmor();
+					collision.gameObject.GetComponent<BulletBehavior>().pIndex = GetComponent<MovePlayer>().GetPlayerIndex();
+					collision.gameObject.GetComponent<BulletBehavior>().Bounce(collision.GetContact(0).normal);
+				}
+				else
+				{
+					GameManager.Instance.ResetLevel();
+					//Change Score for other player
+
+
+				}
+			}
 		}
 	}
 

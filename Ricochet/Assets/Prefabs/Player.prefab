@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f3ee81f4ebd4e4499b5aa69dae151c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HasWeapon: 0
+  HasWeapon: 1
   HasShield: 0
 --- !u!1 &8273679081646672054
 GameObject:

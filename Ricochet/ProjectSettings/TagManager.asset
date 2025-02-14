@@ -9,6 +9,7 @@ TagManager:
   - Items
   - GunPickup
   - ShieldPickup
+  - Bullet
   layers:
   - Default
   - TransparentFX
