@@ -130,7 +130,7 @@ public class PlayerStateManager : MonoBehaviour
 				else
 				{
 					AudioSource.PlayOneShot(audioClips[4]);
-					GameManager.Instance.ResetLevel();
+					
 					//Change Score for other player
 					if (collision.gameObject.GetComponent<BulletBehavior>().pIndex == 0)
 					{
@@ -140,6 +140,7 @@ public class PlayerStateManager : MonoBehaviour
 					{
 						score1.AddScore(1);
 					}
+					GameManager.Instance.ResetLevel();
 				}
 			}
 		}
@@ -156,8 +157,9 @@ public class PlayerStateManager : MonoBehaviour
                 }
                 else
                 {
-                    GameManager.Instance.ResetLevel();
+                   
                     score1.AddScore(1);
+					GameManager.Instance.ResetLevel();
                 }
             }
 			else if (GetComponent<MovePlayer>().GetPlayerIndex() == 1)
@@ -170,8 +172,8 @@ public class PlayerStateManager : MonoBehaviour
                 }
                 else
                 {
-                    GameManager.Instance.ResetLevel();
                     score.AddScore(1);
+					GameManager.Instance.ResetLevel();
                 }
             }
 
