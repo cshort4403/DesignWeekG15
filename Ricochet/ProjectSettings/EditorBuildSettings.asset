@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 256d9f8f3617ffa4482e2f6573c97887
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/GameScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/GameScene - Copy 1.unity
     guid: 6a6d0d55703005a4090619f05af110aa
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
+    path: Assets/Scenes/GameScene - Copy 2.unity
     guid: 7cc90ad0ab2945045b9e3bb4c8c940e2
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ad4b6284ed769d14bb99c3a74eca1b5e, type: 2}
