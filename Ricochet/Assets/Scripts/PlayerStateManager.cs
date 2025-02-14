@@ -41,13 +41,14 @@ public class PlayerStateManager : MonoBehaviour
 
 
 
-	public void PickUpWeapon()
+	public void PickUpWeapon(GameObject weapon)
     {
         if (!HasWeapon)
         {
             HasWeapon = true;
 			GunBehavior.HasShot = false;
-        }
+			Destroy(weapon);
+		}
         
     }
 	public void DropWeapon()
@@ -57,11 +58,12 @@ public class PlayerStateManager : MonoBehaviour
 			HasWeapon = false;
 		}
 	}
-	public void PickUpArmour()
+	public void PickUpArmour(GameObject shield)
 	{
 		if(!HasShield)
 		{
 			HasShield = true;
+			Destroy(shield);
 		}
 	}
 	public void LoseArmor()
@@ -76,13 +78,12 @@ public class PlayerStateManager : MonoBehaviour
 	{
         if (other.gameObject.CompareTag("GunPickup"))
         {
-			PickUpWeapon();
-			Destroy(other.gameObject);
+			PickUpWeapon(other.gameObject);
         }
 		if (other.gameObject.CompareTag("ShieldPickup"))
 		{
-			PickUpArmour();
-			Destroy(other.gameObject);
+			PickUpArmour(other.gameObject);
+			
 		}
 	}
 
