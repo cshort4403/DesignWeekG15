@@ -10,6 +10,9 @@ public class Explosive_Barrel : MonoBehaviour
     //The bullet layer, which should set off the explosive barrel
     public LayerMask bullets;
 
+    [SerializeField]
+    AudioClip BarrelMeetBullet;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class Explosive_Barrel : MonoBehaviour
         LayerMask bullets = LayerMask.GetMask("Bullets");
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullets")) 
         {
+            AudioSource.PlayClipAtPoint(BarrelMeetBullet, transform.position);
             Debug.Log("collision with bullets.");
             Instantiate(blast, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
