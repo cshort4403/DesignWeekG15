@@ -102,7 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blastMaxAliveTime: 0.5
+  pIndex: 0
   Detonation: {fileID: 8300000, guid: 7059152be65800141b3729c89e28bddb, type: 3}
+  HasKaboomed: 0
 --- !u!50 &6963211087886762006
 Rigidbody2D:
   serializedVersion: 4

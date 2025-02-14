@@ -103,6 +103,7 @@ MonoBehaviour:
   bullets:
     serializedVersion: 2
     m_Bits: 256
+  BarrelMeetBullet: {fileID: 8300000, guid: ad69e61f7753b394997040ccc6a8b701, type: 3}
 --- !u!58 &465987545618702422
 CircleCollider2D:
   m_ObjectHideFlags: 0
