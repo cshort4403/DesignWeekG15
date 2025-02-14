@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: P1_SPRITESHEET_SHIELD_N_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 495
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae66f0500bd9a344a8f4407b2d3001b
+      internalID: 1595868056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P1_SPRITESHEET_SHIELD_N_1
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 38
+        width: 495
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14468173c55768141bfda01770c74294
+      internalID: 1701640571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P1_SPRITESHEET_SHIELD_N_2
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 38
+        width: 495
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff7895afbf2ee04a8134bea20f308a8
+      internalID: 2031694739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P1_SPRITESHEET_SHIELD_N_3
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 38
+        width: 495
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fa9a526c71532d48b4b355a0bfa408d
+      internalID: 108644144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +190,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      P1_SPRITESHEET_SHIELD_N_0: 1595868056
+      P1_SPRITESHEET_SHIELD_N_1: 1701640571
+      P1_SPRITESHEET_SHIELD_N_2: 2031694739
+      P1_SPRITESHEET_SHIELD_N_3: 108644144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
