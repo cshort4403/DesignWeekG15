@@ -56,7 +56,7 @@ public class ItemSpawnBehavior : MonoBehaviour
 
     public void ResetItem()
     {
-        OccupyingObject = null;
+        Destroy(OccupyingObject);
 		if (SpawnOnStart) TimeSinceLastSpawn = SpawnCooldown;
 	}
 
