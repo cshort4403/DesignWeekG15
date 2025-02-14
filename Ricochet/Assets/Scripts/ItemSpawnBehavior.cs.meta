@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 6c303d68c904600409395656e9305c28
+guid: 2ff84f94a205a924382b7a6089b31e60
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - spawnableGun: {instanceID: 0}
-  - spawnableArmor: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
