@@ -5,7 +5,7 @@ using TMPro;
 public class score : MonoBehaviour
 {   //create variable to keep count of score
     public int scoreCount = 0;
-    public TextMeshProUGUI scoreText;
+    public Text scoreText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

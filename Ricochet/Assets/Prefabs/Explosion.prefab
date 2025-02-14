@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8206734434142692548}
   m_Layer: 8
   m_Name: Explosion
-  m_TagString: Untagged
+  m_TagString: Blast
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +105,8 @@ MonoBehaviour:
   pIndex: 0
   Detonation: {fileID: 8300000, guid: 7059152be65800141b3729c89e28bddb, type: 3}
   HasKaboomed: 0
+  score: {fileID: 0}
+  score1: {fileID: 0}
 --- !u!50 &6963211087886762006
 Rigidbody2D:
   serializedVersion: 4

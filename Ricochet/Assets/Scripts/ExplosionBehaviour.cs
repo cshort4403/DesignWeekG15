@@ -14,7 +14,7 @@ public class ExplosionBehaviour : MonoBehaviour
     //The physical existance of the explosion
     Rigidbody2D rb2D;
 
-    public int pIndex = 0;
+    public int pIndex = 3;
 
     //If it is touching the player or not.
     bool IsColliding = false;
@@ -32,11 +32,16 @@ public class ExplosionBehaviour : MonoBehaviour
 
     bool hasPLayedTheBoom = false;
 
+    //public score score;
+    //public score1 score1;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
 
+        //
+        //pIndex = 3;
     }
 
     private void Awake()
@@ -70,31 +75,35 @@ public class ExplosionBehaviour : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!IsColliding)
-        {
-            if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() == 0)
-            {
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+        //if (!IsColliding)
+        //{
+            //if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() == 0)
+            //{
 
-                IsColliding = true;
-                foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
-                {
-                    g.GetComponent<MovePlayer>().ResetPosition();
-                    Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
-                }
-            }
+                //IsColliding = true;
+                //foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+                //{
+                    //g.GetComponent<MovePlayer>().ResetPosition();
+                    //Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
 
-            if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() == 1)
-            {
+                    //score1.AddScore(1);
+                //}
+            //}
 
-                IsColliding = true;
-                foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
-                {
-                    g.GetComponent<MovePlayer>().ResetPosition();
-                    Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
-                }
-            }
-        }
-    }
+            //if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() == 1)
+            //{
+
+                //IsColliding = true;
+                //foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+                //{
+                    //g.GetComponent<MovePlayer>().ResetPosition();
+                    //Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
+
+                    //score.AddScore(1);
+                //}
+            //}
+        //}
+    //}
 }
