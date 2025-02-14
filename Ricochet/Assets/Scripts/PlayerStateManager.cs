@@ -14,6 +14,9 @@ public class PlayerStateManager : MonoBehaviour
 	GunBehavior GunBehavior;
 	Animator controller;
 
+	public score score;
+	public score1 score1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -103,19 +106,60 @@ public class PlayerStateManager : MonoBehaviour
 			{
 				if (HasShield)
 				{
+					//Get rid of the player's armor
 					LoseArmor();
+					//Make the bullet belong to the player so it can bounce back and hit the other player?
 					collision.gameObject.GetComponent<BulletBehavior>().pIndex = GetComponent<MovePlayer>().GetPlayerIndex();
+					//Bounce the bullet?
 					collision.gameObject.GetComponent<BulletBehavior>().Bounce(collision.GetContact(0).normal);
 				}
 				else
 				{
 					GameManager.Instance.ResetLevel();
 					//Change Score for other player
-
-
+					if (collision.gameObject.GetComponent<BulletBehavior>().pIndex == 0)
+					{
+						score.AddScore(1);
+					}
+					else if (collision.gameObject.GetComponent<BulletBehavior>().pIndex == 1)
+					{
+						score1.AddScore(1);
+					}
 				}
 			}
 		}
-	}
 
+		if (collision.gameObject.CompareTag("Blast"))
+		{
+			if (GetComponent<MovePlayer>().GetPlayerIndex() == 0)
+			{
+                if (HasShield)
+                {
+                    LoseArmor();
+                    //collision.gameObject.GetComponent<BulletBehavior>().pIndex = GetComponent<MovePlayer>().GetPlayerIndex();
+                    //collision.gameObject.GetComponent<BulletBehavior>().Bounce(collision.GetContact(0).normal);
+                }
+                else
+                {
+                    GameManager.Instance.ResetLevel();
+                    score1.AddScore(1);
+                }
+            }
+			else if (GetComponent<MovePlayer>().GetPlayerIndex() == 1)
+			{
+                if (HasShield)
+                {
+                    LoseArmor();
+                    //collision.gameObject.GetComponent<BulletBehavior>().pIndex = GetComponent<MovePlayer>().GetPlayerIndex();
+                    //collision.gameObject.GetComponent<BulletBehavior>().Bounce(collision.GetContact(0).normal);
+                }
+                else
+                {
+                    GameManager.Instance.ResetLevel();
+                    score.AddScore(1);
+                }
+            }
+
+        }
+    }
 }

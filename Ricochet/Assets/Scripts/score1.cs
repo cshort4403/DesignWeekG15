@@ -20,10 +20,10 @@ public class score1 : MonoBehaviour
     void Update()
     {
         //increase score if space button is pressed
-        if (Input.GetKeyDown(KeyCode.RightShift))
-        {
-            AddScore(1);
-        }
+        //if (Input.GetKeyDown(KeyCode.RightShift))
+        //{
+            //AddScore(1);
+        //}
 
     }/*
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,7 +33,7 @@ public class score1 : MonoBehaviour
     }
     */
 
-    void AddScore(int amount)
+    public void AddScore(int amount)
     {   //add increment to score
         scoreCount += amount;
         //call function
