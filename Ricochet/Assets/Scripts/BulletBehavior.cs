@@ -20,6 +20,9 @@ public class BulletBehavior : MonoBehaviour
 
     Rigidbody2D rb2d;
 
+    [SerializeField]AudioClip[] RicochetSounds;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,30 +42,36 @@ public class BulletBehavior : MonoBehaviour
 			aliveTime += Time.deltaTime;
         }
     }
+
+    public void Bounce(Vector3 normal)
+    {
+        transform.right = Vector3.Reflect(transform.right, normal);
+		rb2d.velocity = transform.right * speed;
+		numBounces--;
+
+        AudioSource.PlayClipAtPoint(RicochetSounds[Mathf.FloorToInt(Random.Range(0, RicochetSounds.Length))], transform.position);
+    }
+
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
         if (!IsColliding)
         {
 			if (collision.gameObject.CompareTag("Wall") && numBounces > 0)
             {
-				transform.right = Vector3.Reflect(transform.right, collision.contacts[0].normal);
-				rb2d.velocity = transform.right * speed;
+                Bounce(collision.contacts[0].normal);
 				// transform.Rotate(newRot);
 				IsColliding = true;
-				numBounces--;
                 Debug.Log($"Wall collision {rb2d.velocity}");
             }
             else if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != pIndex)
             {
 				IsColliding = true;
-				foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
-                {
-                    g.GetComponent<MovePlayer>().ResetPosition();
-                    Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
-                }
-                //Change Score
 
-                Destroy(gameObject);
+                if (collision.gameObject.GetComponent<PlayerStateManager>().HasShield == false)
+                {
+                    Destroy(gameObject);
+                }
+                
             }
             else if (numBounces <= 0)
             {

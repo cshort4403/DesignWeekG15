@@ -68,7 +68,7 @@ public class MovePlayer : MonoBehaviour
 			PrevRotate = RotateVector;
 		}
 
-		float angle = Mathf.Atan2(PrevRotate.y, PrevRotate.x) * Mathf.Rad2Deg + 90;
+		float angle = Mathf.Atan2(PrevRotate.y, PrevRotate.x) * Mathf.Rad2Deg + 90f;
 		transform.GetChild(0).rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		
 	}

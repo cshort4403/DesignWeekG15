@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1648075360373067814}
   m_Layer: 6
   m_Name: ItemSpawn
-  m_TagString: Untagged
+  m_TagString: Items
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff84f94a205a924382b7a6089b31e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsOccupied: 0
+  SpawnOnStart: 0
   ItemToSpawn: {fileID: 858163378910421231, guid: 9f197b8f9b6006847a9276cb15f642aa, type: 3}
-  GunSpawnCooldown: 10
+  SpawnCooldown: 10
 --- !u!1 &7637181637149745105
 GameObject:
   m_ObjectHideFlags: 0

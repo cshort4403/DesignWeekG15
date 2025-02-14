@@ -9,6 +9,9 @@ TagManager:
   - Items
   - GunPickup
   - ShieldPickup
+  - Bullet
+  - Blast
+  - Barrel
   layers:
   - Default
   - TransparentFX

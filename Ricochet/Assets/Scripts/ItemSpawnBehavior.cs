@@ -54,4 +54,10 @@ public class ItemSpawnBehavior : MonoBehaviour
 		GetComponentInChildren<Light2D>().enabled = true;
 	}
 
+    public void ResetItem()
+    {
+        Destroy(OccupyingObject);
+		if (SpawnOnStart) TimeSinceLastSpawn = SpawnCooldown;
+	}
+
 }
