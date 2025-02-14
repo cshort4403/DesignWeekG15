@@ -5,9 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour 
 {
-    public void PlayGame()
+
+    List<string> LevelNames = new List<string>();
+    bool sceneLoaded = false;
+
+	public void Start()
+	{
+        LevelNames.Add("Level1");
+		LevelNames.Add("Level2");
+		LevelNames.Add("Level3");
+	}
+
+	public void PlayGame()
     {
-        SceneManager.LoadSceneAsync("GameScene");
+        if(!sceneLoaded)
+        {
+            SceneManager.LoadScene(LevelNames[Random.Range(0,3)]);
+            sceneLoaded = true;
+        }
+
+       
     }
 
     public void QuitGame()
