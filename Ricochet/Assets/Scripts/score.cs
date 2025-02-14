@@ -5,7 +5,7 @@ using TMPro;
 public class score : MonoBehaviour
 {   //create variable to keep count of score
     public int scoreCount = 0;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,11 +17,13 @@ public class score : MonoBehaviour
     void Update()
     {
         //add increment to score
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddScore(1);
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+            //AddScore(1);
 
-        }
+        //}
+
+
     }
     /*
         private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +31,7 @@ public class score : MonoBehaviour
         Destroy(collision.gameObject);
         AddScore();
     }*/
-    void AddScore(int amount)
+    public void AddScore(int amount)
     {   //add increment to score
         scoreCount += amount;
         //update score

@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class BulletBehavior : MonoBehaviour
 {
@@ -19,6 +22,10 @@ public class BulletBehavior : MonoBehaviour
     bool IsColliding = false;
 
     Rigidbody2D rb2d;
+
+    public TextMeshProUGUI Score;
+
+    public TextMeshProUGUI Score1;
 
     // Start is called before the first frame update
     void Start()
@@ -54,11 +61,21 @@ public class BulletBehavior : MonoBehaviour
             }
             else if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<MovePlayer>().GetPlayerIndex() != pIndex)
             {
-				IsColliding = true;
+                if (pIndex == 0)
+                {
+                    Score.GetComponent<score>().AddScore(1);
+                }
+                else if (pIndex == 1)
+                {
+                    Score1.GetComponent<score1>().AddScore(1);
+                }
+
+                IsColliding = true;
 				foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
                 {
                     g.GetComponent<MovePlayer>().ResetPosition();
                     Debug.Log($"Reset Player {g.GetComponent<MovePlayer>().GetPlayerIndex()}");
+
                 }
                 //Change Score
 
