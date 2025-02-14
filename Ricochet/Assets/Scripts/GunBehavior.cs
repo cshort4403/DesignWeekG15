@@ -31,7 +31,10 @@ public class GunBehavior : MonoBehaviour
 	public GameObject MuzzleFlash;
 
 	float flashTimeLapse = 0;
-	float maxFlashTime = 1f;
+
+	[SerializeField]
+	public float maxFlashTime = 0.85f;
+	
 	public bool flashing = false;
 
 	// Start is called before the first frame update
