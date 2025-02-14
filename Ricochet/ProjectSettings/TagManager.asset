@@ -11,6 +11,7 @@ TagManager:
   - ShieldPickup
   - Bullet
   - Blast
+  - Barrel
   layers:
   - Default
   - TransparentFX

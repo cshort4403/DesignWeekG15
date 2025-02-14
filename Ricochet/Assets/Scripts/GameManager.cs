@@ -32,6 +32,5 @@ public class GameManager
 			GameObject.Destroy(g);
 		}
 
-
 	}
 }
