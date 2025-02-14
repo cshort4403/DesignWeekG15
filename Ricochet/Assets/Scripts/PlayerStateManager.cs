@@ -14,6 +14,11 @@ public class PlayerStateManager : MonoBehaviour
 	GunBehavior GunBehavior;
 	Animator controller;
 
+	AudioSource AudioSource;
+
+	[SerializeField]
+	AudioClip[] audioClips;
+
 	public score score;
 	public score1 score1;
 
@@ -22,6 +27,7 @@ public class PlayerStateManager : MonoBehaviour
     {
 		GunBehavior = GetComponentInChildren<GunBehavior>();
         controller = GetComponentInChildren<Animator>();
+		AudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,6 +64,7 @@ public class PlayerStateManager : MonoBehaviour
         {
             HasWeapon = true;
 			GunBehavior.HasShot = false;
+			AudioSource.PlayOneShot(audioClips[0]);
 			Destroy(weapon);
 		}
         
@@ -66,6 +73,7 @@ public class PlayerStateManager : MonoBehaviour
 	{
 		if (HasWeapon)
 		{
+			AudioSource.PlayOneShot(audioClips[1]);
 			HasWeapon = false;
 		}
 	}
@@ -74,6 +82,7 @@ public class PlayerStateManager : MonoBehaviour
 		if(!HasShield)
 		{
 			HasShield = true;
+			AudioSource.PlayOneShot(audioClips[2]);
 			Destroy(shield);
 		}
 	}
