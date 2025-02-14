@@ -64,7 +64,7 @@ public class PlayerStateManager : MonoBehaviour
         {
             HasWeapon = true;
 			GunBehavior.HasShot = false;
-			AudioSource.PlayOneShot(audioClips[0]);
+			AudioSource.PlayOneShot(audioClips[0], 0.5f);
 			Destroy(weapon);
 		}
         
@@ -73,7 +73,7 @@ public class PlayerStateManager : MonoBehaviour
 	{
 		if (HasWeapon)
 		{
-			AudioSource.PlayOneShot(audioClips[1]);
+			AudioSource.PlayOneShot(audioClips[1], 0.5f);
 			HasWeapon = false;
 		}
 	}

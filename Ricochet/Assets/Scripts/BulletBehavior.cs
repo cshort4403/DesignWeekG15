@@ -22,12 +22,14 @@ public class BulletBehavior : MonoBehaviour
 
     [SerializeField]AudioClip[] RicochetSounds;
 
+    AudioSource AudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
 		rb2d = GetComponent<Rigidbody2D>();
 		rb2d.velocity = transform.right * speed;
+        AudioSource = GetComponent<AudioSource>();
 	}
 
     // Update is called once per frame
@@ -49,7 +51,7 @@ public class BulletBehavior : MonoBehaviour
 		rb2d.velocity = transform.right * speed;
 		numBounces--;
 
-        AudioSource.PlayClipAtPoint(RicochetSounds[Mathf.FloorToInt(Random.Range(0, RicochetSounds.Length))], transform.position);
+        AudioSource.PlayOneShot(RicochetSounds[Mathf.FloorToInt(Random.Range(0, RicochetSounds.Length))]);
     }
 
 	private void OnCollisionEnter2D(Collision2D collision)
