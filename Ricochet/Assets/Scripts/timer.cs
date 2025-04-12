@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {   //create a float to track amount of time left
@@ -30,6 +31,7 @@ public class Timer : MonoBehaviour
                 else
                 {   //display text "Time Up" on console
                     Debug.Log("Time Up");
+                    SceneManager.LoadScene("MainMenu");
                 }
 
             }

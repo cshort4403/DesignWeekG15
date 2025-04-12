@@ -26,8 +26,17 @@ public class GunBehavior : MonoBehaviour
 
 	bool hasPLayedShellDrop = false;
 
-	// Start is called before the first frame update
-	void Start()
+    public GameObject MuzzleFlash;
+
+    float flashTimeLapse = 0;
+
+    [SerializeField]
+    public float maxFlashTime = 0.85f;
+
+    public bool flashing = false;
+
+    // Start is called before the first frame update
+    void Start()
 	{
 
 	}
@@ -46,7 +55,19 @@ public class GunBehavior : MonoBehaviour
 			TimeSinceShot += Time.deltaTime;
 		}
 
-	}
+
+        if (flashing = true && flashTimeLapse <= maxFlashTime)
+        {
+            flashTimeLapse += Time.deltaTime;
+        }
+        else if (flashing = true && flashTimeLapse >= maxFlashTime)
+        {
+            MuzzleFlash.SetActive(false);
+            flashing = false;
+            flashTimeLapse = 0f;
+        }
+
+    }
 	
 	
 	public void Shoot(bool shooting)
@@ -62,7 +83,11 @@ public class GunBehavior : MonoBehaviour
 			hasPLayedShellDrop = false;
 
 			Debug.Log($"Shot at {angle}");
-		}
+
+
+            MuzzleFlash.SetActive(true);
+            flashing = true;
+        }
 		
 	}
 }
